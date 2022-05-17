@@ -1,7 +1,11 @@
 ✋ Hi, I’m @saradevera
+
 · From Architecture 📐 to Data Science 🧪
+
 · Bootcamper at The Bridge 🌉
+
 · Climber 🧗‍♀️
+
 · Side project www.unmomentoporfavor.es
 
 <!---
