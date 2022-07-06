@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-# NO FUNCIONAAAAAAAAAAA
+
 
 class Tablero:
     
