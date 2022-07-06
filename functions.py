@@ -21,22 +21,22 @@ def barco_aleatorio_maquina(eslora):
     while len(coordenadas_barco) < eslora:
         if orien == "N":
             fila = fila - 1
-            if fila-eslora<-3:
+            if fila-eslora<=-2:
                 return barco_aleatorio_maquina(eslora)
                 
         if orien == "S":
             fila = fila + 1
-            if fila+eslora>12:
+            if fila+eslora>=11:
                 return barco_aleatorio_maquina(eslora)
         
         if orien == "E":
             columna = columna + 1
-            if columna+eslora>12:
+            if columna+eslora>=11:
                 return barco_aleatorio_maquina(eslora)
         
         if orien == "O":
             columna = columna - 1
-            if columna-eslora<-3:
+            if columna-eslora<=-2:
                 return barco_aleatorio_maquina(eslora)
         
         coordenadas_barco.append((fila, columna))
@@ -46,7 +46,8 @@ def barco_aleatorio_maquina(eslora):
 
 def barco_por_coordenadas_jugador(eslora):
     '''
-    La función barco_aleatorio genera de manera aleatoria las coordenadas de posición de un barco de eslora determinada.
+    La función barco_por_coordenadas_jugador genera unos inputs para que el usuario introduzca las coordenadas de posición
+    de un barco de eslora determinada.
     Inputs: eslora - > int
     Output: coordenadas barco -> list
     '''
@@ -58,24 +59,24 @@ def barco_por_coordenadas_jugador(eslora):
     while len(coordenadas_barco) < eslora:
         if orien == "N":
             fila = fila - 1
-            if fila-eslora<-4:
+            if fila-eslora<=-2:
                 return barco_aleatorio_maquina(eslora)
                 
         if orien == "S":
             fila = fila + 1
-            if fila+eslora>13:
+            if fila+eslora>=11:
                 return barco_aleatorio_maquina(eslora)
         
         if orien == "E":
             columna = columna + 1
-            if columna+eslora>13:
+            if columna+eslora>=11:
                 return barco_aleatorio_maquina(eslora)
         
         if orien == "O":
             columna = columna - 1
-            if columna-eslora<-4:
+            if columna-eslora<=-2:
                 return barco_aleatorio_maquina(eslora)
-      
+        
         coordenadas_barco.append((fila, columna))
 
     return coordenadas_barco
@@ -84,7 +85,7 @@ def barco_por_coordenadas_jugador(eslora):
 
 def colocar_barco_jugador(tablero, barco_por_coordenadas_jugador):
     '''
-    La función colocar_barco posiciona dentro del tablero el barco de coordenadas generadas por la función barco_aleatorio
+    La función colocar_barco posiciona dentro del tablero el barco de coordenadas generadas por la función previa
     Input: variable tablero
     Input: lista de coordenadas
     Output: tablero modificado
@@ -98,7 +99,12 @@ def colocar_barco_jugador(tablero, barco_por_coordenadas_jugador):
     return tablero
 
 def colocar_barcos_jugador(tablero, barcos):
-
+    '''
+    La función colocar_barcos posiciona dentro del tablero la lista de barcos generada por la función previa en el tablero del jugador
+    Input: variable tablero
+    Input: lista de coordenadas
+    Output: tablero modificado
+    '''
     for barco in barcos:
         tablero = colocar_barco_jugador(tablero, barco)
     return tablero
@@ -119,11 +125,11 @@ def colocar_barcos_maquina(tablero,barcos):
 
     for barco in barcos:
         tablero = colocar_barco_maquina(tablero, barco)
-    print("La máquina ha colocado todos sus barcos")
-    
+    print("La máquina ha colocado todos sus barcos")    
 
 
-# FUNCIONES DISPARO
+
+# FUNCIONES GITHUB
 
 def disparo_por_coordenadas_DOBLE_TAB(tablero, tablero_2):
     '''
@@ -136,6 +142,12 @@ def disparo_por_coordenadas_DOBLE_TAB(tablero, tablero_2):
     '\U000026AA' == False
 
     while True: 
+        if np.sum(tablero == '\U00002B55') == 4:
+                
+                print('Has ganado el juego, ¡Enhorabuena!')
+                # print(tablero)
+                break
+
         if tablero[coordenada1,coordenada2] == '\U000026AA':
             
             tablero[coordenada1,coordenada2] = '\U0001F537'
@@ -174,6 +186,12 @@ def disparo_aleatorio_con_bucle(tablero):
        
 
     while True:
+        if np.sum(tablero == '\U00002B55') == 4:
+                
+                print('La máquina ha ganado, lo siento...')
+                # print(tablero)
+                break
+
         if tablero[coordenada1,coordenada2] == '\U000026AA':
             print('Máquina disparando...')
             sleep(1)
