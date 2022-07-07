@@ -46,12 +46,11 @@ f.colocar_barcos_maquina(v.tablero_maquina, v.lista_de_barcos_maq)
 
 print('A continuación empezarás a disparar a las naves de la máquina')
 sleep(1.5)
-print(v.tablero_maquina)
 
 
-while np.sum(v.tablero_maquina == '\U00002B55') <= 4:
+while (np.sum(v.tablero_maquina == '\U00002B55') < 13) or (np.sum(v.tablero_jugaador == '\U00002B55') < 13):
 
-    if np.sum(v.tablero_jugador == '\U00002B55') == 4:
+    if np.sum(v.tablero_jugador == '\U00002B55') == 12:
         sonido_perder = pygame.mixer.Sound("hoho.wav")
         pygame.mixer.Sound.play(sonido_perder)
         print('Lo siento, has perdido todas tus naves')
@@ -61,7 +60,7 @@ while np.sum(v.tablero_maquina == '\U00002B55') <= 4:
     print('Has acertado ', np.sum(v.tablero_maquina == '\U00002B55'), 'disparos')
     sleep(0.5)
 
-    if np.sum(v.tablero_maquina == '\U00002B55') == 4:
+    if np.sum(v.tablero_maquina == '\U00002B55') == 12:
         sonido_ganar = pygame.mixer.Sound("r2.wav")
         pygame.mixer.Sound.play(sonido_ganar)
         # print('Has ganado el juego, ¡Enhorabuena!')
