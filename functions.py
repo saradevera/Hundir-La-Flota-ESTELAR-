@@ -142,13 +142,13 @@ def disparo_por_coordenadas_DOBLE_TAB(tablero, tablero_2):
     '\U000026AA' == False
 
     while True: 
-        if np.sum(tablero == '\U00002B55') == 4:
+        if np.sum(tablero == '\U00002B55') == 12:
                 
                 print('Has ganado el juego, ¡Enhorabuena!')
                 # print(tablero)
                 break
 
-        if tablero[coordenada1,coordenada2] == '\U000026AA':
+        if (tablero[coordenada1,coordenada2] == '\U000026AA') or (tablero[coordenada1,coordenada2] == '\U0001F537'):
             
             tablero[coordenada1,coordenada2] = '\U0001F537'
             tablero_2[coordenada1,coordenada2] = '\U0001F537'
@@ -159,7 +159,7 @@ def disparo_por_coordenadas_DOBLE_TAB(tablero, tablero_2):
             break
 
 
-        elif tablero[coordenada1,coordenada2] == '\U0001F680':
+        elif (tablero[coordenada1,coordenada2] == '\U0001F680') or (tablero[coordenada1,coordenada2] == '\U00002B55'):
             
             tablero[coordenada1,coordenada2] = '\U00002B55'
             tablero_2[coordenada1,coordenada2] = '\U00002B55'
@@ -167,8 +167,7 @@ def disparo_por_coordenadas_DOBLE_TAB(tablero, tablero_2):
             print("Tocado, ¡sigue disparando!")
             print(tablero_2)
 
-            coordenada1=int(input('Escribe aquí la primera coordenada'))
-            coordenada2=int(input('Escribe aquí la segunda coordenada'))
+            return disparo_por_coordenadas_DOBLE_TAB
 
     
             
@@ -186,13 +185,13 @@ def disparo_aleatorio_con_bucle(tablero):
        
 
     while True:
-        if np.sum(tablero == '\U00002B55') == 4:
+        if np.sum(tablero == '\U00002B55') == 12:
                 
                 print('La máquina ha ganado, lo siento...')
                 # print(tablero)
                 break
 
-        if tablero[coordenada1,coordenada2] == '\U000026AA':
+        if (tablero[coordenada1,coordenada2] == '\U000026AA') or (tablero[coordenada1,coordenada2] == '\U0001F537'):
             print('Máquina disparando...')
             sleep(1)
 
@@ -200,7 +199,7 @@ def disparo_aleatorio_con_bucle(tablero):
             print("La máquina ha fallado")
             break
                
-        elif tablero[coordenada1,coordenada2] == '\U0001F680':
+        elif (tablero[coordenada1,coordenada2] == '\U0001F680') or (tablero[coordenada1,coordenada2] == '\U00002B55'):
             print('Máquina disparando...')
             sleep(1)
             
