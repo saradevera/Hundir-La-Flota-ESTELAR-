@@ -48,7 +48,7 @@ print('A continuación empezarás a disparar a las naves de la máquina')
 sleep(1.5)
 
 
-while (np.sum(v.tablero_maquina == '\U00002B55') < 13) or (np.sum(v.tablero_jugaador == '\U00002B55') < 13):
+while True:
 
     if np.sum(v.tablero_jugador == '\U00002B55') == 12:
         sonido_perder = pygame.mixer.Sound("hoho.wav")
